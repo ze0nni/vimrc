@@ -60,3 +60,6 @@ inorema <C-space> <C-x><C-o>
 
 "настройки для FPC
 au BufRead,BufNewFile *.pp set filetype=pascal
+
+"Список todo и fixme
+command Todo noautocmd vimgrep /TODO\|FIXME/j ** | cw
