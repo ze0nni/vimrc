@@ -1,5 +1,6 @@
 "color desert
-color delek
+"color delek
+color elflord
 "set utf8 encoding
 set encoding=utf8
 
@@ -66,3 +67,6 @@ augroup filetypedetect
 	autocmd! BufRead,BufNewFile *.pp setfiletype=pascal
     autocmd! BufRead,BufNewFile *.as,*.as3 	setfiletype actionscript
 augroup END
+
+autocmd BufWinLeave *.* mkview
+autocmd BufWinEnter *.* silent loadview 
