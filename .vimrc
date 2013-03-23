@@ -58,8 +58,11 @@ imap <F8> <esc>:NERDTreeToggle<cr>
 
 inorema <C-space> <C-x><C-o>
 
-"настройки для FPC
-au BufRead,BufNewFile *.pp set filetype=pascal
-
 "Список todo и fixme
 command Todo noautocmd vimgrep /TODO\|FIXME/j ** | cw
+
+"определение тип файла по расширению
+augroup filetypedetect
+	autocmd! BufRead,BufNewFile *.pp setfiletype=pascal
+    autocmd! BufRead,BufNewFile *.as,*.as3 	setfiletype actionscript
+augroup END
