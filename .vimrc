@@ -18,6 +18,7 @@ set nowrap
 set nu
 set autoindent
 set tabstop=4
+set shiftwidth=4
 "nmap t <esc>:tabn<cr>
 "nmap T <esc>:tabp<cr>
 " сворачинваие блоков
@@ -62,11 +63,15 @@ inorema <C-space> <C-x><C-o>
 "Список todo и fixme
 command Todo noautocmd vimgrep /TODO\|FIXME/j ** | cw
 
+"поиск строки в файлах
+map <F3> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
+
 "определение тип файла по расширению
 augroup filetypedetect
 	autocmd! BufRead,BufNewFile *.pp setfiletype=pascal
     autocmd! BufRead,BufNewFile *.as,*.as3 	setfiletype actionscript
 augroup END
-
 autocmd BufWinLeave *.* mkview
 autocmd BufWinEnter *.* silent loadview 
+
+
